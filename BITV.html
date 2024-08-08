@@ -790,31 +790,42 @@
 		<br>
       	</div>
 
-	    <script>
-	        var slideIndex = 0;
+<style>
+    .mySlides {
+        display: none;
+        opacity: 0;
+        transition: opacity 1s ease-in-out; /* Transição suave de 1 segundo */
+    }
+    .mySlides.active {
+        display: block;
+        opacity: 1;
+    }
+</style>
 
-	        
+<script>
+    var slideIndex = 0;
 
-	        showSlides();
+    showSlides();
 
-	        function showSlides() {    
-	            var i;    
-	            var slides = document.getElementsByClassName("mySlides"); 
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
 
-	            for (i = 0; i < slides.length; i++) {
-	               slides[i].style.display = "none";    
-	            }    
+        for (i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");  // Remove a classe ativa de todos os slides
+        }
 
-	            if (slideIndex >= slides.length) {
-	               slideIndex = 0;
-	            }    
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
 
-	            slides[slideIndex].style.display = "block";
+        slides[slideIndex].classList.add("active");  // Adiciona a classe ativa ao slide atual
 
-	            setTimeout(showSlides, 180000);
-			
-	            slideIndex++; 
-	        }
-        </script>
+        setTimeout(showSlides, 180000);  // Mantém o intervalo de 3 minutos
+
+        slideIndex++;
+    }
+</script>
+
     </body>
 </html>
